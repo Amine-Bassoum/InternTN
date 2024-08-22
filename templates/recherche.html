@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+
+  <link rel="icon" href="static/img/logo_plateforme.jpg" type="image/jpg" />
+  <title>Intern'TN</title>
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body class="arriere">
+  <div class="hero_area">
+   
+    <section class=" slider_section position-relative">
+      <div class="detail-box">
+        <div class="row">
+          <div class="col-md-8 col-lg-6 mx-auto">
+            <h1>
+              Intern'TN <br />
+            </h1>
+            
+          </div>
+        </div>
+      </div>
+
+    </section>
+     
+  </div>
+
+
+  <!-- section de recherche-->
+
+  <section class="book_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          
+          <form action="{{ url_for('traiter_formulaire') }}", method='post'>
+            
+            <div class="form-row ">
+              <div class="form-group col-lg-4">
+                <label for="inputAddress1">Entreprise</label>
+                <input type="text" class="form-1" name="entreprise" id="inputAddress1" placeholder="Nom de l'entreprise ">
+              </div><br>
+            <div class="form-group col-lg-4">
+                <label for="inputAddress2">Catégories</label>
+                <select class="form-2" name="categories">
+                  <option class="form-3" value="">Tout</option>
+                  <option class="form-control" value="1A">1ère Année</option>
+                  <option class="form-control" value="2A">2eme Année</option>
+                  <option class="form-control" value="3A">3eme Année</option>
+                </select>
+            </div><br>
+            <div class="form-row">
+              <div class="form-group col-lg-4" id="domaines-container">
+                  <label for="inputAddress2">Domaines</label>
+                  <select type="text" class="form-control" name="domaine" id="inputAddress1" placeholder="Domaine">
+                      <option value="">Domaine</option>
+                    {% for domaine in domaines %}
+                      <option value="{{domaine}}">{{domaine}}</option>
+                    {% endfor %}
+                  </select>
+              </div>
+              <br>
+              <div class="purple_button">
+                  <button type="button" class="btn-secondary" onclick="ajouterChampDomaine()">Ajouter Domaine</button>
+              </div>
+            </div> <br>
+              <div class="form-group col-lg-4">
+                <label for="inputPrice">Ville</label>
+                <input type="text" class="form-5" name ="lieu_stage"id="inputPrice" placeholder="Ville">
+              </div><br>
+              <div class="form-group col-lg-4">
+                <label for="inputPrice">Pays</label>
+                <input type="text" class="form-6" name ="pays"id="inputPrice" placeholder="Pays" >
+              </div><br>
+            </div>
+            <a > <div class="d-flex justify-content-center">
+              <button type="submit" class="btn ">Rechercher</button>
+            </div></a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<script src="{{ url_for('static', filename='ajouter_champs.js') }}"></script>
+</body>
+
+</html>
+
+
+</html>

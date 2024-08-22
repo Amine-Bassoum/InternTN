@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <title>Stages Correspondants</title>
+  <link rel="icon" href="static/img/logo_plateforme.jpg" type="image/jpg" />
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <section class=" slider_section position-relative">
+      <div class="detail-box">
+        <div class="row">
+          <div class="col-md-8 col-lg-6 mx-auto">
+            <h1>
+              Stages Correspondants:<br />
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- package section -->
+  <section class="package_section layout_padding-top">
+    <div class="container">
+      <div class="package_container">
+        {% for result in resultat %}
+          <div class="box active">
+            <div class="detail-box">
+              <h3><strong>{{ result[0] }}</strong></h3>
+              <h3>{{ result[3] }} {{result[4] }}</h3>
+              <div class="price_detail">
+                <h5>{{ result[1] }} Jours</h5>
+                <h6>{{ result[5] }}</h6>
+                <p>{{ result[2] }}</p>
+              </div>
+
+              <a href="mailto:{{result[3]}}.{{result[4]}}@telecomnancy.net" class="etu" title="Contacter un étudiant" type="submit"></a>
+              <!--bouton maitre de stage-->
+              
+                <a href="#" class="maitre" title="Contacter le maître de stage" onclick="toggleWindow('{{ loop.index }}')" type="submit"></a>
+                <div class="info-window" id="infoWindow{{ loop.index }}">
+                  <button role="button" class="close-button" onclick="closeWindow('{{ loop.index }}')">
+                      <img src="/static/img/maitre2.jpg" alt="Logo" class="logo">
+                  </button>
+                  <p>Information disponible :</p>
+                  <p>Nom du maitre de stage : {% if result[6] != None %}{{ result[6] }}{% endif %} {% if result[7] != None %}{{ result[7] }}{% endif %}</p>
+                  {% if result[8] != None %}<p>Télephone : {{ result[8] }}</p>{% endif %}
+                  {% if result[9] != None %}<p>Portable : {{ result[9] }}</p>{% endif %}
+                  {% if result[10] != None %}<p>Courriel : {{ result[10] }}</p>{% endif %}
+                </div>
+                <!--bouton maitre de stage-->
+                <a href="https://www.google.com/search?q={{ result[0] }}&ibp=htl;jobs&sa=X" class="google" title="Trouver des stages similaires sur Google talent"></a>
+              
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <div class="pagination">
+    <span class="pagination-info">{{ pagination.info }}</span>
+    <div class="pagination">
+        {{ pagination.links }}
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
