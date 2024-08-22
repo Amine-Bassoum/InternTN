@@ -16,8 +16,9 @@ To have a major look at it you can use DB Browser (or database viewer in vsc) li
 ## Templates File:
 (temp files) stages2.html and recherche2.html  are  modified versions of stages.html ans recherche2.html respectively.
 
-## Demonstration with 1A / 2A / 3A Filter
-
+## Demonstration
+The website is powered by the Flask framework (python required)
+All requirements are inside the requirements.txt -> ```pip install ./requirements.txt```
 launch the flask_app.py file 
 open your internet browser and connect to your localhost at the correct {port} (found in the python terminal)
 url will be something like http://localhost:{port}/recherche
@@ -28,6 +29,9 @@ there is a google talents integration that's light
 it just copies the url and injects it into the jobs part of google 
 
 # Exemple
+First Page:
 ![image](https://github.com/user-attachments/assets/b3d739b5-accd-4a67-9ca1-2e4a49a036c8)
+Search Engine:
 ![image](https://github.com/user-attachments/assets/209e2e04-d873-4893-99f6-69327c4b7fed)
+Results Page:
 ![image](https://github.com/user-attachments/assets/55b52b82-e33f-4432-a389-76e5dc35654b)
